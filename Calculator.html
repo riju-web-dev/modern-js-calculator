@@ -1,0 +1,203 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern Calculator</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
+
+    body{
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:linear-gradient(135deg, #141e30, #243b55);
+    }
+
+    .calculator{
+      background:rgba(255,255,255,0.08);
+      padding:30px;
+      border-radius:30px;
+      backdrop-filter:blur(10px);
+      box-shadow:0 10px 30px rgba(0,0,0,0.4);
+    }
+
+    #display{
+      width:100%;
+      height:90px;
+      border:none;
+      outline:none;
+      border-radius:15px;
+      margin-bottom:15px;
+      padding:10px;
+      font-size:38px;
+      text-align:right;
+      background:#0f172a;
+      color:white;
+      box-shadow:inset 0 0 10px rgba(0,0,0,0.5);
+    }
+
+    .buttons{
+      display:grid;
+      grid-template-columns:repeat(4, 85px);
+      gap:15px;
+      justify-content:center;
+    }
+
+    button{
+      width:85px;
+      height:85px;
+      border:none;
+      border-radius:15px;
+      font-size:24px;
+      cursor:pointer;
+      transition:0.2s;
+      background:#1e293b;
+      color:white;
+      box-shadow:0 5px 10px rgba(0,0,0,0.3);
+    }
+
+    button:hover{
+      transform:scale(1.05);
+      background:#334155;
+    }
+
+    button:active{
+      transform:scale(0.95);
+    }
+
+    .operator{
+      background:#f97316;
+    }
+
+    .operator:hover{
+      background:#ea580c;
+    }
+
+    .equal{
+      background:#22c55e;
+    }
+
+    .equal:hover{
+      background:#16a34a;
+    }
+
+    .clear{
+      background:#ef4444;
+    }
+
+    .clear:hover{
+      background:#dc2626;
+    }
+
+    .zero{
+      grid-column:span 2;
+   width:185px;
+    }
+.title{
+   color:white;
+   text-align:center;
+   margin-bottom:20px;
+   font-size:32px;
+   letter-spacing:2px;
+}
+
+.portfolio{
+   display:block;
+   text-align:center;
+   margin-top:20px;
+   text-decoration:none;
+   color:#38bdf8;
+   font-size:18px;
+   transition:0.3s;
+}
+
+.portfolio:hover{
+   color:white;
+   transform:scale(1.05);
+}
+  </style>
+</head>
+
+<body>
+
+  <div class="calculator">
+	 <h1 class="title">Calculator</h1>
+    <input type="text" id="display" readonly>
+
+    <div class="buttons">
+
+      <button class="clear" onclick="clearDisplay()">C</button>
+      <button class="operator" onclick="addValue('/')">÷</button>
+      <button class="operator" onclick="addValue('*')">×</button>
+      <button class="operator" onclick="removeLast()">⌫</button>
+
+      <button onclick="addValue('7')">7</button>
+      <button onclick="addValue('8')">8</button>
+      <button onclick="addValue('9')">9</button>
+      <button class="operator" onclick="addValue('-')">−</button>
+
+      <button onclick="addValue('4')">4</button>
+      <button onclick="addValue('5')">5</button>
+      <button onclick="addValue('6')">6</button>
+      <button class="operator" onclick="addValue('+')">+</button>
+
+      <button onclick="addValue('1')">1</button>
+      <button onclick="addValue('2')">2</button>
+      <button onclick="addValue('3')">3</button>
+      <button class="equal" onclick="calculate()">=</button>
+
+      <button class="zero" onclick="addValue('0')">0</button>
+<button onclick="addValue('.')">.</button>
+
+  </div>
+  <a href="https://riju-web-dev.github.io/portfolio-website/"target="_blank" class="portfolio">  My Portfolio</a>
+</div>
+    </div>
+
+  </div>
+
+
+  <script>
+
+    let display = document.getElementById("display");
+
+    function addValue(value){
+      display.value += value;
+    }
+
+    function clearDisplay(){
+      display.value = "";
+    }
+
+    function removeLast(){
+      display.value = display.value.slice(0, -1);
+    }
+
+    function calculate(){
+
+      try{
+        display.value = eval(display.value);
+      }
+
+      catch{
+        display.value = "Error";
+      }
+
+    }
+
+  </script>
+
+</body>
+</html>
+
+
