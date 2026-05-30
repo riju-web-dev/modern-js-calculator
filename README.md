@@ -4,4 +4,4 @@ A stylish calculator built using HTML, CSS and JavaScript.
 
 ## Preview
 
-![Calculator Preview](calculator.png)
+![Calculator Preview](Calculator.png)
